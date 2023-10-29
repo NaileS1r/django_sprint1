@@ -1,4 +1,12 @@
 Django==3.2.16
+<<<<<<< HEAD
 pytest-django==4.5.2
 pytest-pythonpath==0.7.3
 flake8==5.0.4
+=======
+pep8-naming==0.13.3
+pytest-django==4.5.2
+pytest-pythonpath==0.7.3
+flake8==5.0.4
+flake8-docstrings==1.7.0
+>>>>>>> 4bb89d8e243a5aabe6ff0d5ccc671e5630d3c24c

@@ -1,4 +1,5 @@
 [flake8]
+<<<<<<< HEAD
 ignore =
     W503,
     F811,
@@ -10,3 +11,21 @@ exclude =
 per-file-ignores =
     */settings.py:E501
 max-complexity = 10
+=======
+max-line-lenght = 79
+max-complexity = 10
+ignore =
+    W503,
+    F811,
+    D100, D101, D102, D103, D104, D105, D106, D107,
+    D203, D205, D213,
+    D400, D401,
+    N806, N818
+exclude =
+    tests/
+    */migrations/
+    venv/
+    env/
+per-file-ignores =
+  settings.py:E501
+>>>>>>> 4bb89d8e243a5aabe6ff0d5ccc671e5630d3c24c

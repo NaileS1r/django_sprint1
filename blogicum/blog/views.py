@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import Http404
 
 posts = [
     {
@@ -43,20 +44,22 @@ posts = [
     },
 ]
 
+posts_dict = {post['id']: post for post in posts}
+
 
 def index(request):
     return render(request, 'blog/index.html', {'posts': posts})
 
 
-def post_detail(request, id):
-    template = 'blog/detail.html'
-    context = {'post': posts[id]}
-    return render(request, template, context)
+def post_detail(request, post_id):
+    post = posts_dict.get(post_id)
+    if post_id in posts_dict:
+        post = posts_dict[post_id]
+        return render(request, 'blog/detail.html', {'post': post})
+    else:
+        raise Http404("Страницы с таким id не существует.")
 
 
 def category_posts(request, category_slug):
-    template = 'blog/category.html'
-    context = {
-        'category_slug': category_slug,
-    }
-    return render(request, template, context)
+    return render(request, 'blog/category.html',
+                  {'category_slug': category_slug})
